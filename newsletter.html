@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>けテぶれラボ通信 - 2025年4月号</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+        
+        :root {
+            --primary-color: #4CAF50;
+            --primary-light: #81C784;
+            --primary-dark: #388E3C;
+            --accent-color: #FFC107;
+            --text-color: #333;
+            --light-text: #757575;
+            --bg-light: #F5F9F5;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .tagline {
+            font-style: italic;
+            color: var(--bg-light);
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .intro {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .highlights-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .highlight-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+        
+        .highlight-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 80px;
+        }
+        
+        .highlight-header .emoji {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .highlight-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .highlight-content p {
+            margin-bottom: 15px;
+        }
+        
+        .member-name {
+            color: var(--primary-dark);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .tags-container {
+            margin-top: auto;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 30px;
+            border-radius: 0 0 12px 12px;
+            margin-top: 30px;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+        }
+        
+        h1 {
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        h2 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .editors-note {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--accent-color);
+            position: relative;
+        }
+        
+        .editors-note::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 60px;
+            color: var(--accent-color);
+            opacity: 0.2;
+        }
+        
+        @media (max-width: 992px) {
+            .highlights-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .highlight-card {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 30px 15px;
+            }
+            
+            .highlight-header {
+                font-size: 1.1rem;
+            }
+        }
+        
+        .step-guide {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .step-guide h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .step-guide ul {
+            list-style-type: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .step-guide li {
+            margin-bottom: 10px;
+            padding: 8px 10px;
+            position: relative;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .step-guide li:hover {
+            transform: translateX(5px);
+        }
+        
+        .step-guide li:before {
+            content: "→";
+            display: inline-block;
+            margin-right: 8px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>けテぶれラボ通信</h1>
+            <p class="tagline">共に学び、成長し、発信する仲間たち</p>
+            <p>2025年4月号</p>
+        </header>
+        
+        <div class="intro">
+            <h2>春の始まりとともに</h2>
+            <p>春の訪れとともに、けテぶれラボの活動も本格的にスタートしました。新たな仲間との出会いと共に「知る→やってみる→説明する→使う」のサイクルが動き始めています。今月はメンバーの素晴らしい取り組みをご紹介します。個性豊かなメンバーが集まり、互いに刺激し合いながら成長する姿をぜひご覧ください。</p>
+        </div>
+        
+        <div class="highlights-container">
+            <div class="highlight-card">
+                <div class="highlight-header">
+                    <span class="emoji">✨</span>
+                    自己紹介フォーマットの創造
+                </div>
+                <div class="highlight-content">
+                    <p><span class="member-name">10さん</span>の素晴らしい取り組み</p>
+                    <p>10さんが作成された自己紹介フォーマットは、チームの絆を深める素晴らしいツールとなりました。単なる自己紹介を超えて、グループとしての探求課題までまとめ上げる徹底ぶり。メンバーの特性を活かしたチーム形成の基盤を作り上げました。</p>
+                    <div class="tags-container">
+                        <span class="tag">チームビルディング</span>
+                        <span class="tag">探求課題設定</span>
+                        <span class="tag">情報整理力</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-header">
+                    <span class="emoji">🌈</span>
+                    柔軟な参加スタイルの実現
+                </div>
+                <div class="highlight-content">
+                    <p><span class="member-name">ひるねさん</span>と<span class="member-name">ぬのさん</span>の素晴らしい連携</p>
+                    <p>ひるねさんの呼びかけにより、正式申込に間に合わなかったぬのさんが特別支援の実践について話す機会を得ることができました。「ぬのさんのペースで参加」という柔軟な対応が実現し、多様な学びの場が生まれています。</p>
+                    <div class="tags-container">
+                        <span class="tag">インクルーシブな姿勢</span>
+                        <span class="tag">特別支援教育</span>
+                        <span class="tag">柔軟な運営</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-header">
+                    <span class="emoji">🌸</span>
+                    積極的な参加の輪
+                </div>
+                <div class="highlight-content">
+                    <p><span class="member-name">さくらんぼさん</span>の自主的な参加</p>
+                    <p>正式な申込には間に合わなかったものの、議論や情報交換に積極的に参加されているさくらんぼさん。形式に囚われず、学びたい気持ちを大切にする姿勢が、けテぶれラボの開かれた学びの文化を体現しています。</p>
+                    <div class="tags-container">
+                        <span class="tag">自発的参加</span>
+                        <span class="tag">コミュニティ形成</span>
+                        <span class="tag">学びへの意欲</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="editors-note">
+            <h3>編集後記</h3>
+            <p>新年度が始まり、けテぶれラボでも新たな出会いと学びが広がっています。メンバーそれぞれの個性が光り、お互いを高め合う関係が育まれていることを嬉しく思います。これからも「知る→やってみる→説明する→使う」のサイクルを大切に、共に成長していきましょう。</p>
+        </div>
+        
+        <div class="step-guide">
+            <h3>今月の一言</h3>
+            <p>「発信」は学びを深める重要なステップです。あなたも自分のペースで一歩踏み出してみませんか？</p>
+            <ul>
+                <li>自分の気づきをチャンネルに投稿する</li>
+                <li>他のチームの実践にコメントしてみる</li>
+                <li>Scrapboxに学びをまとめてみる</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>けテぶれラボ通信 2025年4月号</p>
+            <p>「知る→やってみる→説明する→使う」のサイクルで共に成長しましょう</p>
+        </div>
+    </div>
+</body>
+</html>
